@@ -6,12 +6,23 @@
   <body>
     <main>
       <script>
-        function setup(){
-        createCanvas(400,400)
-        }
+      
+var w = window.innerWidth;
+var h = window.innerHeight;  
+
+function setup() {
+  canvas=createCanvas(w, h);
+    let button = createButton("reset sketch");
+  button.mousePressed(resetSketch);
+}
         function draw(){
-          rect(45,45,45,45)
+          background(0)
+          rect(45,45,mouseX,mouseY)
         }
+        
+function resetSketch() {
+background(0)
+}
       </script>
     </main>
   </body>
