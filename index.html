@@ -6,29 +6,47 @@
   <body>
     <main>
       <script>
-      
-var w = window.innerWidth;
-var h = window.innerHeight;  
+let x = 0;
+let font;
+let test = "nananaouille ça tue  ";
+let fontSize = 200;
+let word = ["bla bla"];
+ gogo = [[255,250,160],[255,250,160] ]                                       
+
+function preload() {
+  font = loadFont("Cursive standard.ttf");
+}
 
 function setup() {
-  canvas=createCanvas(w, h);
-    let button = createButton("reset sketch");
-  let save = createButton("save png");
-  button.mousePressed(resetSketch);
-       background(0)
-
-         button.mousePressed(save);
-
+  createCanvas(1200, 600);
+  noStroke();
+  index = 0;
+  background(35, 10, 140);
+  frameRate(48);
 }
-        function draw(){
-     
-          ellipse(mouseX,mouseY,45,45)
-        }
-        
-function resetSketch() {
-background(0)
+
+function draw() {
+  exp(x++);
+  points = font.textToPoints(test, 0, 0, fontSize /*{
+  samp[0]leFactor: 0.7}*/);
+
+  translate(50, 350);
+  bibi = [];
+  bibi.push(points[x % points.length]);
+  console.log(bibi.x);
+  for (let pt of bibi) {
+    fill(255,250,160)
+    ellipse(pt.x+100, pt.y, random(6))
+    fill(255);
+    //ellipse(pt.x, pt.y, 3);
+    //  pt.color = (25,123,23)
+    console.log(test);
+  }
 }
-        
+
+function keyTyped() {
+  test += key;
+}     
 
       </script>
     </main>
